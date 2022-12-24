@@ -10,8 +10,8 @@ UA_STR: str = "Mozilla/5.0 (X11; Linux x86_64; rv:107.0) Gecko/20100101 Firefox/
 
 
 def validator(bookID: str) -> bool:
-    if not bookID.startswith("NCL-"):
-        print("BookId should starts with 'NCL-'")
+    if not bookID.startswith("N"):
+        print("BookId should starts with 'N'")
         return False
     return True
 
