@@ -3,6 +3,10 @@ NCL book downloader
 
 下载台湾华文电子书库的公开书籍的脚本。
 
-请自行设法访问网站：https://taiwanebook.ncl.edu.tw
+## 搜索
 
-找到你要的书籍，记下编号。编号开头为 `NCL-XXXXXX`，即网址最后的部分，然后运行脚本。
+运行 nclSearcher，输入关键词即可。运行完毕后自动输出 json 结果到本目录下 search_result.json
+
+## 下载
+
+得到书籍编号后，运行 nclDownloader 下载，保存为 `编号+pdf` 格式。
