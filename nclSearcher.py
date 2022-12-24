@@ -59,6 +59,12 @@ class Searcher:
                 ).find_all("div", class_="item")[1:]
             ]
 
+def saver(raw: any):
+    with open("search_result.json", "w") as fp:
+        dump(raw, fp, ensure_ascii=False)
+        fp.flush()
+        fp.close()
+
 
 if __name__ == "__main__":
     console = Console()
@@ -72,7 +78,7 @@ if __name__ == "__main__":
         table.add_column("Author", justify="left")
         table.add_column("Date", justify="left")
         table.add_column("Publisher", justify="left")
-        
+
         for item in page_items:
             table.add_row(
                 item["ID"],
@@ -83,9 +89,9 @@ if __name__ == "__main__":
             )
             all_items.append(item)
         console.print(table)
-        input("Press any key to continue...")
+        try:
+            input("Press any key to continue...")
+        except KeyboardInterrupt:
+            saver(all_items)
 
-    with open("search_result.json", "w") as fp:
-        dump(all_items, fp, ensure_ascii=False)
-        fp.flush()
-        fp.close()
+        saver(all_items)
